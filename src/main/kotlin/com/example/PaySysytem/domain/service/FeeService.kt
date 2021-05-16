@@ -6,7 +6,8 @@ import com.example.PaySysytem.infrastructure.repository.FeePolicyRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
-@Component
+// @Service로 수정
+@Component // service가 아닌 것들을 Bean으로 만들고 싶을 때 사용
 class FeeService {
 
     @Autowired

@@ -5,11 +5,24 @@ services:
     container_name: postgresql
     restart: always
     volumes:
-      - ./postgresql/data:/var/lib/postgresql/data
+      - ../docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
     ports:
       - 5432:5432
     environment:
-      POSTGRES_DB: paysystem
+      POSTGRES_MULTIPLE_DATABASES: db1,db2
       POSTGRES_USERNAME: "postgres"
       POSTGRES_PASSWORD: "12345678"
       TZ: "Asia/Seoul"
+#  postgresql2:
+#    image: postgres
+#    container_name: postgresql2
+#    restart: always
+#    volumes:
+#      - ./postgresql/data:/var/lib/postgresql/data
+#    ports:
+#      - 5430:5430
+#    environment:
+#      POSTGRES_DB: postgres
+#      POSTGRES_USERNAME: "postgres"
+#      POSTGRES_PASSWORD: "12345678"
+#      TZ: "Asia/Seoul"

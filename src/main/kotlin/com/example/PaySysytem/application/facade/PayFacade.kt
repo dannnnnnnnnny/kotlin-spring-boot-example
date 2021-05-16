@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class PayFacade {
-
-    @Autowired
-    lateinit var feeService: FeeService
+class PayFacade(private val feeService: FeeService) {
 
     fun pay(dto: PayDTO): Int? {
         val (price: Int) = dto
@@ -18,6 +15,8 @@ class PayFacade {
         return deduct(price, fixedFee, percentage)
     }
 
+    // 데이터 변환, 데이터 가져오기 정도만
+    // 비즈니스 로직임 (facade X)
     private fun deduct(price: Int, fixedFee: Int, percentage: Int): Int {
         if (price < 10000)
             return this.feeService.deductFixedFeeToPrice(price, fixedFee)

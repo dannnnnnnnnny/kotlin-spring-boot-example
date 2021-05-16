@@ -6,3 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 interface FeePolicyRepository: JpaRepository<FeePolicy, Long> {
     fun getTopByOrderByIdDesc(): FeePolicy
 }
+
+// queryDSL
