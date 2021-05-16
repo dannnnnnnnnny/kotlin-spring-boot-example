@@ -1,0 +1,15 @@
+version: "3"
+services:
+  postgresql:
+    image: postgres
+    container_name: postgresql
+    restart: always
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: paysystem
+      POSTGRES_USERNAME: "postgres"
+      POSTGRES_PASSWORD: "12345678"
+      TZ: "Asia/Seoul"
